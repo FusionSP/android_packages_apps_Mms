@@ -245,6 +245,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/preferences_title" />
 
+
        <activity android:name=".ui.WwwContextMenuActivity"
             android:label="@string/message_options"
             android:theme="@android:style/Theme.Material.Light.Dialog"
@@ -255,6 +256,11 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.ConversationOptionsActivity"
+                  android:theme="@android:style/Theme.Material.Light.Dialog"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:label="@string/menu_conversation_options" />
 
         <receiver android:name=".transaction.PushReceiver"
             android:permission="android.permission.BROADCAST_WAP_PUSH">
