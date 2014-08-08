@@ -19,29 +19,28 @@
     <item android:id="@+id/search"
           android:title="@string/menu_search"
           android:icon="@drawable/ic_menu_search_white_24dp"
-          android:showAsAction="ifRoom|collapseActionView"
-          android:actionViewClass="android.widget.SearchView" />
+          android:showAsAction="ifRoom|collapseActionView" />
 
     <item android:id="@+id/action_settings"
-        android:title="@string/menu_preferences"
-        android:icon="@android:drawable/ic_menu_preferences" />
+          android:title="@string/menu_preferences"
+          android:icon="@android:drawable/ic_menu_preferences" />
 
     <item android:id="@+id/action_change_to_folder_mode"
-        android:title="@string/change_to_folder_mode"/>
+          android:title="@string/change_to_folder_mode"/>
 
     <item android:id="@+id/action_change_to_conversation_mode"
-        android:title="@string/change_to_conversation_mode"/>
+          android:title="@string/change_to_conversation_mode"/>
 
     <item android:id="@+id/action_memory_status"
-        android:title="@string/memory_status_title"/>
+          android:title="@string/memory_status_title"/>
 
     <item android:id="@+id/action_delete_all"
-        android:title="@string/menu_delete_all"
-        android:icon="@drawable/ic_menu_trash_white_24dp" />
+          android:title="@string/menu_delete_all"
+          android:icon="@drawable/ic_menu_trash_white_24dp" />
 
     <item android:id="@+id/action_cell_broadcasts"
-        android:title="@string/menu_cell_broadcasts" />
+          android:title="@string/menu_cell_broadcasts" />
 
     <item android:id="@+id/action_debug_dump"
-        android:title="@string/menu_debug_dump" />
+          android:title="@string/menu_debug_dump" />
 </menu>
