@@ -37,6 +37,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
@@ -220,12 +221,14 @@ public class MessageUtils {
                         new String[] { "http://", "https://", "rtsp://" };
 
     // add for search
-    public static final String SEARCH_KEY_MAIL_BOX_ID    = "mailboxId";
+    public static final String SEARCH_KEY                = "is_search";
     public static final String SEARCH_KEY_TITLE          = "title";
     public static final String SEARCH_KEY_MODE_POSITION  = "mode_position";
     public static final String SEARCH_KEY_KEY_STRING     = "key_str";
     public static final String SEARCH_KEY_DISPLAY_STRING = "display_str";
     public static final String SEARCH_KEY_MATCH_WHOLE    = "match_whole";
+
+    public static final String MAIL_BOX_ID    = "mailbox_id";
 
     private static final String REPLACE_QUOTES_1 = "'";
     private static final String REPLACE_QUOTES_2 = "''";
@@ -1237,6 +1240,12 @@ public class MessageUtils {
 
     }
 
+    public static void showSmsMessageContent(Context context, long msgId) {
+        Intent i = new Intent(context, MailBoxMessageContent.class);
+        i.setData(ContentUris.withAppendedId(Sms.CONTENT_URI, msgId));
+        context.startActivity(i);
+    }
+
     /**
      * Debugging
      */
@@ -1709,6 +1718,47 @@ public class MessageUtils {
             return mmsStatus & ~DownloadManager.DEFERRED_MASK;
         }
         return mmsStatus;
+    }
+
+    public static void markAsRead(final Context context, final Uri msgUri) {
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    ContentValues values = new ContentValues(2);
+                    values.put(Mms.READ, MessageUtils.MESSAGE_READ);
+                    values.put(Mms.SEEN, MessageUtils.MESSAGE_SEEN);
+                    SqliteWrapper.update(context,
+                            context.getContentResolver(),
+                            msgUri, values, null, null);
+
+                    MessagingNotification.blockingUpdateNewMessageIndicator(
+                            context,
+                            MessagingNotification.THREAD_NONE, false);
+                } catch (Exception e) {
+                    Log.e(TAG, "Update Read Error", e);
+                }
+            }
+        }).start();
+    }
+
+    public static boolean cancelFailedToDeliverNotification(Intent intent, Context context) {
+        if (MessagingNotification.isFailedToDeliver(intent)) {
+            // Cancel any failed message notifications
+            MessagingNotification.cancelNotification(context,
+                        MessagingNotification.MESSAGE_FAILED_NOTIFICATION_ID);
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean cancelFailedDownloadNotification(Intent intent, Context context) {
+        if (MessagingNotification.isFailedToDownload(intent)) {
+            // Cancel any failed download notifications
+            MessagingNotification.cancelNotification(context,
+                        MessagingNotification.DOWNLOAD_FAILED_NOTIFICATION_ID);
+            return true;
+        }
+        return false;
     }
 
     /**
