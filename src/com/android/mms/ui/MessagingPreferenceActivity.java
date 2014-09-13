@@ -128,6 +128,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     // Smart Dialer
     public static final String SMART_DIALER_ENABLED = "pref_key_mms_smart_dialer";
 
+    // Custom User-Agent
+    public static final String USER_AGENT               = "pref_key_mms_user_agent";
+    public static final String USER_AGENT_CUSTOM        = "pref_key_mms_user_agent_custom";
+
     // QuickMessage
     public static final String QUICKMESSAGE_ENABLED      = "pref_key_quickmessage";
     public static final String QM_LOCKSCREEN_ENABLED     = "pref_key_qm_lockscreen";
