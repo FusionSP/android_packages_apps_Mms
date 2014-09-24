@@ -1447,7 +1447,7 @@ public class MessageUtils {
         }
         log("Set: sub = " + sub + " smsc= " + smsc);
         Bundle params = new Bundle();
-        params.putInt(PhoneConstants.SUBSCRIPTION_KEY, sub);
+        params.putInt(PhoneConstants.SLOT_KEY, sub);
         params.putString(EXTRA_SMSC, smsc);
         params.putParcelable("callback", callback);
         callBinder(context, METHOD_SET_SMSC, params);
@@ -1460,7 +1460,7 @@ public class MessageUtils {
         log("Get: sub = " + sub);
         callback.replyTo = new Messenger(callback.getTarget());
         Bundle params = new Bundle();
-        params.putInt(PhoneConstants.SUBSCRIPTION_KEY, sub);
+        params.putInt(PhoneConstants.SLOT_KEY, sub);
         params.putParcelable("callback", callback);
         callBinder(context, METHOD_GET_SMSC, params);
     }
