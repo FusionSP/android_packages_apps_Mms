@@ -1517,6 +1517,12 @@ public class MessageUtils {
         return ViewMode;
     }
 
+    public static void setMailboxMode(boolean mode) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MmsApp
+                .getApplication());
+        sp.edit().putBoolean(VIEW_MODE_NAME, mode).commit();
+    }
+
     /**
      * Return the sim name of subscription.
      */
