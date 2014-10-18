@@ -34,6 +34,9 @@ import android.os.Handler;
 import android.provider.Telephony.Sms;
 import android.provider.Telephony.Mms;
 import android.provider.Telephony.MmsSms;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -74,6 +77,7 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
     private OnListContentChangedListener mListChangedListener;
     private final LinkedHashMap<String, BoxMessageItem> mMessageItemCache;
     private static final int CACHE_SIZE = 50;
+    private static final StyleSpan STYLE_BOLD = new StyleSpan(Typeface.BOLD);
 
     // For posting UI update Runnables from other threads:
     private Handler mHandler = new Handler();
@@ -93,6 +97,7 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
     private String mAddress;
     private String mName;
     private int mMsgBox;
+    private boolean mIsUnread;
 
     public MailBoxMessageListAdapter(Context context, OnListContentChangedListener changedListener,
             Cursor cursor) {
@@ -221,14 +226,13 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
         boolean isError = false;
         boolean isLocked = false;
         mMsgBox = Sms.MESSAGE_TYPE_INBOX;
-        boolean isUnread = false;
 
         if (type.equals("sms")) {
             BoxMessageItem item = getCachedMessageItem(type, msgId, cursor);
             int status = item.mStatus;
             mMsgBox = item.mSmsType;
             int smsRead = item.mRead;
-            isUnread = (smsRead == 0 ? true : false);
+            mIsUnread = (smsRead == 0 ? true : false);
             mSubscription = item.mSubID;
             addr = item.mAddress;
             isError = item.mSmsType == Sms.MESSAGE_TYPE_FAILED;
@@ -247,7 +251,7 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
             recipientIds = cursor.getString(COLUMN_RECIPIENT_IDS);
 
             if (0 == mmsRead && mMsgBox == Mms.MESSAGE_BOX_INBOX) {
-                isUnread = true;
+                mIsUnread = true;
             }
 
             bodyStr = MessageUtils.extractEncStrFromCursor(cursor, COLUMN_MMS_SUBJECT,
@@ -275,7 +279,7 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
 
         if (mListView.isItemChecked(cursor.getPosition())) {
             view.setBackgroundDrawable(mBgSelectedDrawable);
-        } else if (isUnread) {
+        } else if (mIsUnread) {
             view.setBackgroundDrawable(mBgUnReadDrawable);
         } else {
             view.setBackgroundDrawable(mBgReadDrawable);
@@ -324,11 +328,17 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
     }
 
     public void formatNameView(String address, String name) {
+        SpannableStringBuilder buf = null;
         if (TextUtils.isEmpty(name)) {
-            mNameView.setText(address);
+            buf = new SpannableStringBuilder(address);
         } else {
-            mNameView.setText(name);
+            buf = new SpannableStringBuilder(name);
         }
+        if (mIsUnread) {
+            buf.setSpan(STYLE_BOLD, 0, buf.length(),
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
+        mNameView.setText(buf);
     }
 
     public void cleanItemCache() {
