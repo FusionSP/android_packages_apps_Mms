@@ -1843,6 +1843,7 @@ public class WorkingMessage {
         SqliteWrapper.insert(mActivity, mContentResolver, Sms.CONTENT_URI, values);
         asyncDeleteDraftMmsMessage(conv);
         mMessageUri = null;
+        MmsWidgetProvider.notifyDatasetChanged(MmsApp.getApplication());
     }
 
     private void asyncDelete(final Uri uri, final String selection, final String[] selectionArgs) {
