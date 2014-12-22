@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:background="@android:drawable/editbox_background" >
+        android:background="@android:color/transparent" >
 
         <LinearLayout
             android:layout_width="0dip"
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="1"
-                android:background="@android:drawable/picture_frame" />
+                android:background="@drawable/picture_frame" />
 
             <LinearLayout  android:id="@+id/audio"
                 android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:src="@drawable/ic_mms_music"
+                    android:src="@drawable/ic_mms_music_white_24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -79,34 +79,34 @@
                 android:orientation="horizontal">
 
                 <ImageButton  android:id="@+id/pre_slide_button"
-                    style="?android:attr/buttonStyleSmall"
+                    style="@style/Widget.Material.Dark.Button.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="50dip"
-                    android:src="@drawable/ic_maps_back" />
+                    android:src="@drawable/ic_maps_back_white_24dp" />
 
                 <ImageButton  android:id="@+id/next_slide_button"
-                    style="?android:attr/buttonStyleSmall"
+                    style="@style/Widget.Material.Dark.Button.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="50dip"
-                    android:src="@drawable/ic_maps_next" />
+                    android:src="@drawable/ic_maps_next_white_24dp" />
             </LinearLayout>
 
             <Button android:id="@+id/preview_button"
-                style="?android:attr/buttonStyleSmall"
+                style="@style/Widget.Material.Dark.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="2"
                 android:text="@string/preview" />
 
             <Button android:id="@+id/replace_image_button"
-                style="?android:attr/buttonStyleSmall"
+                style="@style/Widget.Material.Dark.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="2"
                 android:text="@string/replace_image" />
 
             <Button android:id="@+id/remove_slide_button"
-                style="?android:attr/buttonStyleSmall"
+                style="@style/Widget.Material.Dark.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="2"
@@ -140,6 +140,7 @@
         </EditText>
 
         <Button android:id="@+id/done_button"
+            style="@style/Widget.Material.Dark.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:nextFocusLeft="@+id/text_message"

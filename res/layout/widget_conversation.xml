@@ -44,7 +44,7 @@
         <TextView android:id="@+id/from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:singleLine="true"
             android:textSize="16sp"
             android:layout_marginTop="6dip"
@@ -61,7 +61,7 @@
             android:textSize="12sp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:singleLine="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true" />
@@ -82,12 +82,12 @@
             android:visibility="gone"
             android:layout_toLeftOf="@id/error"
             android:layout_alignBottom="@id/date"
-            android:src="@drawable/ic_attachment_universal_small" />
+            android:src="@drawable/ic_attachment_universal_small_white_18dp" />
 
         <TextView android:id="@+id/subject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:singleLine="true"
             android:textSize="12sp"
             android:layout_marginBottom="5dip"

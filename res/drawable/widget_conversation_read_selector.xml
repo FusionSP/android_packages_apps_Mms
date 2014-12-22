@@ -17,12 +17,17 @@
  */
 -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true"
-          android:drawable="@drawable/list_pressed_holo_light" />
-    <item android:state_focused="true"
-          android:drawable="@drawable/list_focused_holo" />
-    <item android:state_selected="true"
-          android:drawable="@drawable/list_focused_holo" />
-    <item android:drawable="@drawable/list_read_holo" />
-</selector>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight">
+    <item>
+        <selector>
+            <item android:state_selected="true">
+                <nine-patch
+                    android:src="@drawable/list_selector_background_focused_selected" />
+            </item>
+            <item>
+                <nine-patch android:src="@drawable/list_read" />
+            </item>
+        </selector>
+    </item>
+</ripple>

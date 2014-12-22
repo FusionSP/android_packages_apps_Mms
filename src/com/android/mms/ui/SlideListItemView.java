@@ -76,7 +76,7 @@ public class SlideListItemView extends LinearLayout implements SlideViewInterfac
     public void setAudio(Uri audio, String name, Map<String, ?> extras) {
         if (name != null) {
             mAttachmentName.setText(name);
-            mAttachmentIcon.setImageResource(R.drawable.ic_mms_music);
+            mAttachmentIcon.setImageResource(R.drawable.ic_mms_music_white_24dp);
         } else {
             mAttachmentName.setText("");
             mAttachmentIcon.setImageDrawable(null);

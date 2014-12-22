@@ -21,7 +21,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/list_background">
 
     <LinearLayout
         android:id="@+id/recipients_subject_linear"
@@ -41,8 +42,8 @@
         />
 
         <EditText android:id="@+id/subject"
-            android:textAppearance="?android:attr/textAppearanceMediumInverse"
-            android:textColor="@android:color/black"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:capitalize="sentences"
@@ -59,7 +60,7 @@
         android:gravity="bottom">
 
         <view class="com.android.mms.ui.MessageListView"
-            style="?android:attr/listViewWhiteStyle"
+            style="?android:attr/listViewStyle"
             android:id="@+id/history"
             android:layout_width="match_parent"
             android:layout_height="0dip"
@@ -73,12 +74,17 @@
             android:cacheColorHint="@android:color/white"
             android:scrollbarAlwaysDrawVerticalTrack="false"
             android:scrollbarStyle="insideOverlay"
-            android:paddingBottom="@dimen/input_text_height_adjusted"
+            android:paddingTop="@dimen/cardsui_padding_half"
+            android:paddingBottom="@dimen/cardsui_padding_half"
         />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/cardsui_padding_full"
+            android:layout_marginRight="@dimen/cardsui_padding_full"
+            android:layout_marginBottom="@dimen/cardsui_padding_full"
+            android:background="@color/read_bgcolor"
             android:orientation="vertical">
 
             <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -113,22 +119,17 @@
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"/>
               </view>
-            </ScrollView>
 
-            <!-- Divider -->
-            <View android:background="#eeeeee"
-                android:layout_width="match_parent"
-                android:layout_height="1dp" />
+            </ScrollView>
 
             <LinearLayout
                 android:id="@+id/bottom_panel"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff" >
+                android:layout_height="wrap_content" >
 
                 <EditText
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:id="@+id/embedded_text_editor"
                     android:layout_width="0dip"
                     android:layout_gravity="bottom"
@@ -159,7 +160,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal|bottom"
-                        android:textColor="#cc333333"
+                        android:textColor="@color/hint_text_color"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:paddingLeft="3dip"

@@ -223,7 +223,7 @@ public class ConversationListItem extends RelativeLayout implements Contact.Upda
     private void updateBackground() {
         int backgroundId;
         if (mConversation.isChecked()) {
-            backgroundId = R.drawable.list_selected_holo_light;
+            backgroundId = R.drawable.list_selector_background_focused_selected;
         } else if (mConversation.hasUnreadMessages()) {
             backgroundId = R.drawable.conversation_item_background_unread;
         } else {

@@ -23,13 +23,18 @@
     android:id="@+id/msg_list_item_recv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/cardsui_padding_half"
+    android:paddingBottom="@dimen/cardsui_padding_half"
+    android:paddingLeft="@dimen/cardsui_padding_full"
+    android:paddingRight="@dimen/cardsui_padding_full">
 
     <LinearLayout android:id="@+id/mms_layout_view_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:background="@color/read_bgcolor">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -50,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/avatar"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/hairline_left"
                 android:orientation="vertical" >
 
                 <TextView android:id="@+id/text_view"
@@ -62,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:linksClickable="false"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#ff000000"
+                    android:textColor="#ffffffff"
                     android:textSize="16sp" />
 
                 <LinearLayout
@@ -73,18 +77,17 @@
                     android:orientation="horizontal" >
 
                     <TextView android:id="@+id/date_view"
-                        android:background="@drawable/listitem_background"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="3dip"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/text_hairline" />
+                        android:textColor="@color/timestamp_color" />
 
                     <ImageView
                         android:id="@+id/locked_indicator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_lock_message_sms"
+                        android:src="@drawable/ic_lock_message_sms_white_18dp"
                         android:paddingRight="3dip"
                         android:visibility="gone" />
 

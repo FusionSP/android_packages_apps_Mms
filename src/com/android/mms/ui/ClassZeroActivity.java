@@ -160,7 +160,7 @@ public class ClassZeroActivity extends Activity {
         /* This'll be used by the save action */
         mMessage = rawMessage;
 
-        mDialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK).setMessage(message)
+        mDialog = new AlertDialog.Builder(this, AlertDialog.THEME_MATERIAL_DARK).setMessage(message)
                 .setPositiveButton(R.string.save, mSaveListener)
                 .setNegativeButton(android.R.string.cancel, mCancelListener)
                 .setCancelable(false).show();

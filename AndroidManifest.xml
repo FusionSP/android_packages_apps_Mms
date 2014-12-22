@@ -62,7 +62,7 @@
         <activity android:name=".ui.ConversationList"
                   android:label="@string/app_label"
                   android:configChanges="orientation|screenSize|keyboardHidden"
-                  android:theme="@style/MmsHoloTheme"
+                  android:theme="@style/MmsMaterialTheme"
                   android:uiOptions="splitActionBarWhenNarrow"
                   android:launchMode="singleTop">
             <intent-filter>
@@ -86,7 +86,7 @@
         <activity android:name=".ui.ComposeMessageActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:windowSoftInputMode="stateHidden|adjustResize"
-                  android:theme="@style/MmsHoloTheme"
+                  android:theme="@style/MmsMaterialTheme"
                   android:parentActivityName=".ui.ConversationList"
                   android:launchMode="singleTop" >
             <intent-filter>
@@ -131,50 +131,50 @@
                   android:targetActivity=".ui.ComposeMessageActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:windowSoftInputMode="stateHidden"
-                  android:theme="@style/MmsHoloTheme" >
+                  android:theme="@style/MmsMaterialTheme" >
         </activity-alias>
 
         <activity android:name=".ui.ComposeMessageActivityNoLockScreen"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:windowSoftInputMode="stateHidden"
-                  android:theme="@style/MmsHoloTheme"
+                  android:theme="@style/MmsMaterialTheme"
                   android:exported="false"
                   android:launchMode="singleTop" >
         </activity>
 
         <activity android:name=".ui.DeliveryReportActivity"
             android:label="@string/delivery_report_activity"
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@*android:style/Theme.Material.Dialog.Dark">
         </activity>
 
         <activity android:name=".ui.WarnOfStorageLimitsActivity"
-                android:theme="@android:style/Theme.Dialog"
+                android:theme="@*android:style/Theme.Material.Dialog.Dark"
                 android:label="@string/storage_limits_activity"
                 android:excludeFromRecents="true">
         </activity>
 
         <activity android:name=".ui.EditSlideDurationActivity"
             android:label="@string/change_duration_activity"
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@*android:style/Theme.Material.Dialog.Dark">
         </activity>
 
         <activity android:name=".ui.SlideshowEditActivity"
-            android:theme="@style/MmsHoloTheme"
+            android:theme="@style/MmsMaterialTheme"
             android:label="@string/edit_slideshow_activity" />
 
         <activity android:name=".ui.RecipientListActivity"
-            android:theme="@style/MmsHoloTheme"
+            android:theme="@style/MmsMaterialTheme"
             android:label="@string/recipient_list_activity" />
 
         <activity android:name=".ui.SlideEditorActivity"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@style/MmsHoloTheme"
+            android:theme="@style/MmsMaterialTheme"
             android:label="@string/edit_slide_activity" />
 
         <activity android:name=".ui.SlideshowActivity"
             android:noHistory="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/MmsHoloTheme"
+            android:theme="@style/MmsMaterialTheme"
             android:label="@string/slideshow_activity">
         </activity>
 
@@ -187,7 +187,7 @@
         </activity>
 
         <activity android:name=".ui.MessagingPreferenceActivity"
-            android:theme="@style/MmsHoloTheme"
+            android:theme="@style/MmsMaterialTheme"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/preferences_title" />
 
@@ -217,7 +217,7 @@
         </receiver>
 
         <activity android:name=".ui.ManageSimMessages"
-                  android:theme="@style/MmsHoloTheme"
+                  android:theme="@style/MmsMaterialTheme"
                   android:launchMode="singleTop"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:label="@string/sim_manage_messages_title">
@@ -271,7 +271,7 @@
         </receiver>
 
         <activity android:name=".ui.ConfirmRateLimitActivity"
-                  android:theme="@android:style/Theme.Dialog">
+                  android:theme="@*android:style/Theme.Material.Dialog.Dark">
             <intent-filter>
                 <action android:name="com.android.mms.RATE_LIMIT_SURPASSED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -279,7 +279,7 @@
         </activity>
 
         <activity android:name=".ui.SearchActivity"
-            android:theme="@style/MmsHoloTheme"
+            android:theme="@style/MmsMaterialTheme"
             android:label="@string/search"
             android:configChanges="orientation|screenSize|keyboardHidden" >
             <intent-filter>

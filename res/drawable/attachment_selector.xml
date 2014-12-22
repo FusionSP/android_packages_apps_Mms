@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 Google Inc.
+<!-- Copyright (C) 2014 The Fusion Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,12 +14,7 @@
      limitations under the License.
 -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:state_pressed="false"
-        android:drawable="@android:drawable/picture_frame" />
-
-    <item
-        android:state_pressed="true"
-        android:drawable="@drawable/list_pressed_holo_light" />
-</selector>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="?android:attr/colorControlHighlight">
+    <item android:drawable="@drawable/picture_frame" />
+</ripple>

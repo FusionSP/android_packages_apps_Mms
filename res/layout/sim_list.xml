@@ -21,16 +21,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffffff"
+    android:background="@*android:color/material_blue_grey"
     android:layout_gravity="center">
 
     <ListView
         android:id="@+id/messages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:cacheColorHint="#ffffffff"
+        android:cacheColorHint="@*android:color/material_blue_grey"
         android:listSelector="@android:drawable/list_selector_background"
-        android:divider="@android:drawable/divider_horizontal_bright"
+        android:divider="@android:drawable/divider_horizontal_dark"
         android:focusable="true"
         android:drawSelectorOnTop="false"
         android:stackFromBottom="true" />

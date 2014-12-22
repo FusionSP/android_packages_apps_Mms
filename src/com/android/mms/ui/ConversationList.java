@@ -39,6 +39,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SqliteWrapper;
 import android.graphics.drawable.Drawable;
+import android.graphics.Outline;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -61,8 +62,10 @@ import android.view.View;
 import android.view.View.OnCreateContextMenuListener;
 import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -130,6 +133,29 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
     private boolean mIsSmsEnabled;
     private Toast mComposeDisabledToast;
 
+    private View.OnClickListener mFabListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (mIsSmsEnabled) {
+                createNewMessage();
+            } else {
+                // Display a toast letting the user know they can not compose.
+                if (mComposeDisabledToast == null) {
+                    mComposeDisabledToast = Toast.makeText(ConversationList.this,
+                            R.string.compose_disabled_toast, Toast.LENGTH_SHORT);
+                }
+                mComposeDisabledToast.show();
+            }
+        }
+    };
+
+    private static final ViewOutlineProvider OVAL_OUTLINE_PROVIDER = new ViewOutlineProvider() {
+        @Override
+        public void getOutline(View view, Outline outline) {
+            outline.setOval(0, 0, view.getWidth(), view.getHeight());
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,6 +197,8 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
             mSavedFirstVisiblePosition = AdapterView.INVALID_POSITION;
             mSavedFirstItemOffset = 0;
         }
+
+        setupFloatingActionButton();
     }
 
     @Override
@@ -239,6 +267,19 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
 
         mUnreadConvCount = (TextView)v.findViewById(R.id.unread_conv_count);
     }
+
+    private void setupFloatingActionButton() {
+        final View floatingActionButtonContainer = findViewById(
+                R.id.floating_action_button_container);
+        final ImageButton floatingActionButton = (ImageButton) findViewById(
+                R.id.floating_action_button);
+
+        floatingActionButtonContainer.setOutlineProvider(OVAL_OUTLINE_PROVIDER);
+        floatingActionButtonContainer.setTranslationZ(
+                getResources().getDimensionPixelSize(R.dimen.floating_action_button_translation_z));
+        floatingActionButton.setOnClickListener(mFabListener);
+    }
+
 
     private final ConversationListAdapter.OnContentChangedListener mContentChangedListener =
         new ConversationListAdapter.OnContentChangedListener() {
@@ -537,11 +578,6 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
         if (item != null) {
             item.setVisible((mListAdapter.getCount() > 0) && mIsSmsEnabled);
         }
-        item = menu.findItem(R.id.action_compose_new);
-        if (item != null ){
-            // Dim compose if SMS is disabled because it will not work (will show a toast)
-            item.getIcon().setAlpha(mIsSmsEnabled ? 255 : 127);
-        }
         if (!LogTag.DEBUG_DUMP) {
             item = menu.findItem(R.id.action_debug_dump);
             if (item != null) {
@@ -562,18 +598,6 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
-            case R.id.action_compose_new:
-                if (mIsSmsEnabled) {
-                    createNewMessage();
-                } else {
-                    // Display a toast letting the user know they can not compose.
-                    if (mComposeDisabledToast == null) {
-                        mComposeDisabledToast = Toast.makeText(this,
-                                R.string.compose_disabled_toast, Toast.LENGTH_SHORT);
-                    }
-                    mComposeDisabledToast.show();
-                }
-                break;
             case R.id.action_delete_all:
                 // The invalid threadId of -1 means all threads here.
                 confirmDeleteThread(-1L, mQueryHandler);
@@ -793,7 +817,7 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
             });
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, AlertDialog.THEME_MATERIAL_DARK);
         builder.setTitle(R.string.confirm_dialog_title)
             .setIconAttribute(android.R.attr.alertDialogIcon)
             .setCancelable(true)

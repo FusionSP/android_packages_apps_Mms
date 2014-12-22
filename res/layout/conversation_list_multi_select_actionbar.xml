@@ -28,7 +28,7 @@
         android:singleLine="true"
         android:layout_gravity="center_vertical"
         android:layout_centerVertical="true"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

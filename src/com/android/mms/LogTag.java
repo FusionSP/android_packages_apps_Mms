@@ -113,7 +113,7 @@ public class LogTag {
             dumpInternalTables(activity);
             activity.runOnUiThread(new Runnable() {
                 public void run() {
-                    new AlertDialog.Builder(activity)
+                    new AlertDialog.Builder(activity, AlertDialog.THEME_MATERIAL_DARK)
                         .setIconAttribute(android.R.attr.alertDialogIcon)
                         .setTitle(R.string.error_state)
                         .setMessage(msg + "\n\n" + activity.getString(R.string.error_state_text))

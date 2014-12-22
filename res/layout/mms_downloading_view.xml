@@ -24,6 +24,7 @@
     android:orientation="horizontal">
 
     <Button android:id="@+id/btn_download_msg"
+        style="@style/Widget.Material.Dark.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

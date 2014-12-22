@@ -599,7 +599,7 @@ public class MessageUtils {
         if (activity.isFinishing()) {
             return;
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity, AlertDialog.THEME_MATERIAL_DARK);
 
         builder.setIcon(R.drawable.ic_sms_mms_not_delivered);
         builder.setTitle(title);
@@ -687,7 +687,7 @@ public class MessageUtils {
 
     public static void showDiscardDraftConfirmDialog(Context context,
             OnClickListener listener) {
-        new AlertDialog.Builder(context)
+        new AlertDialog.Builder(context, AlertDialog.THEME_MATERIAL_DARK)
                 .setMessage(R.string.discard_message_reason)
                 .setPositiveButton(R.string.yes, listener)
                 .setNegativeButton(R.string.no, null)
@@ -813,7 +813,7 @@ public class MessageUtils {
     private static void confirmReadReportDialog(Context context,
             OnClickListener positiveListener, OnClickListener negativeListener,
             OnCancelListener cancelListener) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, AlertDialog.THEME_MATERIAL_DARK);
         builder.setCancelable(true);
         builder.setTitle(R.string.confirm);
         builder.setMessage(R.string.message_send_read_report);

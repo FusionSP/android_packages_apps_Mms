@@ -520,8 +520,8 @@ public class SlideEditorActivity extends Activity {
     }
 
     private void showDurationDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setIcon(R.drawable.ic_mms_duration);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_MATERIAL_DARK);
+        builder.setIcon(R.drawable.ic_mms_duration_white_24dp);
         String title = getResources().getString(R.string.duration_selector_title);
         builder.setTitle(title + (mPosition + 1) + "/" + mSlideshowModel.size());
 
@@ -549,7 +549,7 @@ public class SlideEditorActivity extends Activity {
     }
 
     private void showLayoutSelectorDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_MATERIAL_DARK);
         builder.setIcon(R.drawable.ic_mms_layout);
 
         String title = getResources().getString(R.string.layout_selector_title);

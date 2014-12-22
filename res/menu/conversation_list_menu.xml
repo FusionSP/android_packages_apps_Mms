@@ -16,14 +16,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/action_compose_new"
-        android:title="@string/new_message"
-        android:icon="@drawable/ic_menu_msg_compose_holo_dark"
-        android:showAsAction="always|withText" />
-
     <item android:id="@+id/search"
           android:title="@string/menu_search"
-          android:icon="@drawable/ic_menu_search_holo_dark"
+          android:icon="@drawable/ic_menu_search_white_24dp"
           android:showAsAction="ifRoom|collapseActionView"
           android:actionViewClass="android.widget.SearchView" />
 
@@ -33,7 +28,7 @@
 
     <item android:id="@+id/action_delete_all"
         android:title="@string/menu_delete_all"
-        android:icon="@drawable/ic_menu_trash_holo_dark" />
+        android:icon="@drawable/ic_menu_trash_white_24dp" />
 
     <item android:id="@+id/action_cell_broadcasts"
         android:title="@string/menu_cell_broadcasts" />

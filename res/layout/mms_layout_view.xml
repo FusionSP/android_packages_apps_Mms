@@ -39,9 +39,10 @@
 
     <ImageButton
         android:id="@+id/play_slideshow_button"
+        style="@style/Widget.Material.Dark.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/mms_play_btn"
+        android:src="@drawable/mms_play_btn_white_24dp"
         android:layout_gravity="center"
         android:visibility="gone" />
 

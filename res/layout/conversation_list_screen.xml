@@ -24,15 +24,20 @@
     android:focusable="true"  >
 
     <ListView android:id="@android:id/list"
-        style="?android:attr/listViewWhiteStyle"
+        style="?android:attr/listViewStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/banner_sms_promo"
         android:drawSelectorOnTop="false"
         android:scrollbarStyle="insideOverlay"
-        android:background="@android:color/white"
-        android:cacheColorHint="@android:color/white"
-        android:fadingEdgeLength="16dip" />
+        android:background="@color/list_background"
+        android:cacheColorHint="@color/list_background"
+        android:fadingEdgeLength="16dip"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingTop="@dimen/cardsui_padding_half"
+        android:paddingBottom="@dimen/cardsui_padding_half"
+        android:clipToPadding="false" />
 
     <TextView android:id="@+id/empty"
         android:layout_width="match_parent"
@@ -42,4 +47,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
      <include layout="@layout/banner_sms_promo" />
+
+    <include layout="@layout/floating_action_button" />
 </RelativeLayout>
