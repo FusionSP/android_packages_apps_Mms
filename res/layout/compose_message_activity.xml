@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/mms_theme_color"
+        android:background="@color/header_background"
         android:elevation="@dimen/action_bar_elevation"
         android:theme="@style/HeaderTheme">
 
@@ -101,7 +101,7 @@
             android:visibility="gone"
             android:fadingEdge="none"
             android:layout_marginBottom="1dip"
-            android:cacheColorHint="@android:color/white"
+            android:cacheColorHint="@color/cache_color_hint"
             android:scrollbarAlwaysDrawVerticalTrack="false"
             android:scrollbarStyle="outsideOverlay"
             android:paddingBottom="@dimen/input_text_height_adjusted"
@@ -157,7 +157,7 @@
             </ScrollView>
 
             <!-- Divider -->
-            <View android:background="#eeeeee"
+            <View android:background="@color/dividers"
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
 
@@ -167,16 +167,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                android:background="#fff" >
+                android:background="@color/bottom_panel_background" >
 
                 <EditText
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/edit_text_color"
                     android:id="@+id/embedded_text_editor"
                     android:layout_width="0dip"
                     android:layout_gravity="bottom"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
                     android:layout_marginStart="8dip"
+                    android:background="@color/edit_text_background"
                     android:autoText="true"
                     android:textSize="16sp"
                     android:capitalize="sentences"
@@ -200,7 +201,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal|bottom"
-                        android:textColor="#cc333333"
+                        android:textColor="@color/compose_message_text_counter"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:paddingStart="3dip"
@@ -246,10 +247,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                android:background="#fff" >
+                android:background="@color/bottom_panel_background" >
 
                 <EditText
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/edit_text_color"
                     android:id="@+id/embedded_text_editor_btnstyle"
                     android:layout_width="match_parent"
                     android:layout_gravity="bottom"
@@ -290,7 +291,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal|bottom"
                             android:layout_gravity="center_horizontal"
-                            android:textColor="#cc333333"
+                            android:textColor="@color/compose_message_text_counter"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:paddingStart="3dip"
@@ -350,7 +351,7 @@
                     </LinearLayout>
 
                     <!-- Divider -->
-                    <View android:background="#858585"
+                    <View android:background="@color/dividers"
                         android:layout_width="1dip"
                         android:layout_height="38dip"
                         android:layout_gravity="center_vertical" />
@@ -371,7 +372,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal|bottom"
                             android:layout_gravity="center_horizontal"
-                            android:textColor="#cc333333"
+                            android:textColor="@color/compose_message_text_counter"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:paddingStart="3dip"

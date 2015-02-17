@@ -53,6 +53,8 @@
     <color name="message_sent">#000000</color>
     <color name="widget_unread_text">#777777</color>
     <color name="widget_loading">#000000</color>
+    <color name="cache_color_hint">#ffffffff</color>
+    <color name="edit_text_color">#ff000000</color>
 
     <!-- New Background colors from layouts to make theme chooser apk easier to theme -->
     <color name="background">#ffffff</color>
@@ -61,6 +63,9 @@
     <color name="quickmessage_body_light_bg">#fff3f3f3</color>
     <color name="dividers">#eeeeee</color>
     <color name="transparent">#00000000</color>
+    <color name="header_background">#ffffffff</color>
+    <color name="bottom_panel_background">#ffffffff</color>
+    <color name="edit_text_background">#ffffffff</color>
 
     <color name="banner_item_transparent">#00000000</color>
     <color name="banner_item_activated">#670099cc</color>
