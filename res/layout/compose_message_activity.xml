@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/header_background"
+        android:background="@color/mms_theme_color"
         android:elevation="@dimen/action_bar_elevation"
         android:theme="@style/HeaderTheme">
 
