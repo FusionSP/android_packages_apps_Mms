@@ -284,7 +284,8 @@
             android:key="pref_key_unicode_stripping"
             android:title="@string/pref_title_unicode_stripping"
             android:entries="@array/pref_unicode_stripping_entries"
-            android:entryValues="@array/pref_unicode_stripping_values" />	
+            android:entryValues="@array/pref_unicode_stripping_values"
+            android:defaultValue="0" />	
 
         <com.android.mms.preferences.UserAgentListPreference
             android:key="pref_key_mms_user_agent"
