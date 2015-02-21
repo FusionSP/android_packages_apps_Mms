@@ -2003,15 +2003,14 @@ public class ComposeMessageActivity extends Activity
 
         resetConfiguration(getResources().getConfiguration());
 
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences((Context) ComposeMessageActivity.this);
-
-        int unicodeStripping = prefs.getInt(MessagingPreferenceActivity.UNICODE_STRIPPING_VALUE,
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String unicodeStripping = prefs.getString(MessagingPreferenceActivity.UNICODE_STRIPPING,
                 MessagingPreferenceActivity.UNICODE_STRIPPING_LEAVE_INTACT);
 
-        if (unicodeStripping != MessagingPreferenceActivity.UNICODE_STRIPPING_LEAVE_INTACT) {
-            boolean stripNonDecodableOnly =
-                    unicodeStripping == MessagingPreferenceActivity.UNICODE_STRIPPING_NON_DECODABLE;
+        if (!TextUtils.equals(unicodeStripping,
+                MessagingPreferenceActivity.UNICODE_STRIPPING_LEAVE_INTACT)) {
+            boolean stripNonDecodableOnly = TextUtils.equals(unicodeStripping,
+                    MessagingPreferenceActivity.UNICODE_STRIPPING_NON_DECODABLE);
             mUnicodeFilter = new UnicodeFilter(stripNonDecodableOnly);
         }
 
