@@ -34,7 +34,8 @@ public class QmTextWatcher implements TextWatcher {
     private Context mContext;
     private static final int CHARS_REMAINING_BEFORE_COUNTER_SHOWN = 30;
 
-    public QmTextWatcher(Context context, TextView updateTextView, ImageButton sendButton, UnicodeFilter unicodeFilter) {
+    public QmTextWatcher(Context context, TextView updateTextView,
+            ImageButton sendButton, UnicodeFilter unicodeFilter) {
         mContext = context;
         mTextView = updateTextView;
         mSendButton = sendButton;

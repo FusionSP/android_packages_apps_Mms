@@ -113,9 +113,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String AUTO_DELETE              = "pref_key_auto_delete";
     public static final String GROUP_MMS_MODE           = "pref_key_mms_group_mms";
     public static final String SMS_CDMA_PRIORITY        = "pref_key_sms_cdma_priority";
-    
-    // Vibrate pattern
-    public static final String NOTIFICATION_VIBRATE_PATTERN = "pref_key_mms_notification_vibrate_pattern";    
 
     // Unicode
     public static final String UNICODE_STRIPPING            = "pref_key_unicode_stripping_value";
@@ -141,6 +138,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     // Heads up mode
     public static final String HEADS_UP_MODE_ENABLED = "pref_key_enable_heads_up_mode";
+
+    // Vibrate pattern
+    public static final String NOTIFICATION_VIBRATE_PATTERN = "pref_key_mms_notification_vibrate_pattern";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -194,7 +194,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private ArrayList<Preference> mSmscPrefList = new ArrayList<Preference>();
     private static final int CONFIRM_CLEAR_SEARCH_HISTORY_DIALOG = 3;
     private ListPreference mUnicodeStripping;
-    private CharSequence[] mUnicodeStrippingEntries;
 
     // Whether or not we are currently enabled for SMS. This field is updated in onResume to make
     // sure we notice if the user has changed the default SMS app.
@@ -355,7 +354,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
         // Unicode Stripping
         mUnicodeStripping = (ListPreference) findPreference(UNICODE_STRIPPING);
-        mUnicodeStrippingEntries = getResources().getTextArray(R.array.pref_unicode_stripping_entries);
 
         // SMS Sending Delay
         mMessageSendDelayPref = (ListPreference) findPreference(SEND_DELAY_DURATION);
@@ -464,7 +462,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
         // If needed, migrate vibration setting from the previous tri-state setting stored in
         // NOTIFICATION_VIBRATE_WHEN to the boolean setting stored in NOTIFICATION_VIBRATE.
-        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (sharedPreferences.contains(NOTIFICATION_VIBRATE_WHEN)) {
             String vibrateWhen = sharedPreferences.
                     getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_WHEN, null);
@@ -475,20 +473,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             prefsEditor.apply();
             mVibratePref.setChecked(vibrate);
         }
-
-        // Unicode Stripping
-        int unicodeStripping = sharedPreferences.getInt(UNICODE_STRIPPING_VALUE, UNICODE_STRIPPING_LEAVE_INTACT);
-        mUnicodeStripping.setValue(String.valueOf(unicodeStripping));
-        mUnicodeStripping.setSummary(mUnicodeStrippingEntries[unicodeStripping]);
-        mUnicodeStripping.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                int value = Integer.parseInt((String) newValue);
-                sharedPreferences.edit().putInt(UNICODE_STRIPPING_VALUE, value).commit();
-                mUnicodeStripping.setSummary(mUnicodeStrippingEntries[value]);
-                return true;
-            }
-        });
 
         mSmsRecycler = Recycler.getSmsRecycler();
         mMmsRecycler = Recycler.getMmsRecycler();
