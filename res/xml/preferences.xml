@@ -296,6 +296,18 @@
             android:entryValues="@array/pref_mms_user_agent_values"
             android:dialogTitle="@string/pref_title_mms_user_agent" />
 
+        <SwitchPreference
+            android:key="pref_key_mms_full_timestamp"
+            android:title="@string/pref_title_mms_full_timestamp"
+            android:summary="@string/pref_summary_mms_full_timestamp"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pref_key_mms_use_sent_timestamp"
+            android:title="@string/pref_title_mms_use_sent_timestamp"
+            android:summary="@string/pref_summary_mms_use_sent_timestamp"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
