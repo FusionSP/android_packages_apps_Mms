@@ -20,7 +20,7 @@
         <selector android:autoMirrored="true">
             <item android:state_selected="true">
                 <nine-patch android:src="@drawable/msg_bubble_outgoing_mask"
-                    android:tint="?android:attr/colorControlActivated" />
+                    android:tint="@color/message_bubble_outgoing_selected" />
             </item>
             <item>
                 <nine-patch android:src="@drawable/msg_bubble_outgoing_mask" />
