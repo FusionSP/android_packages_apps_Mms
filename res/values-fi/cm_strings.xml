@@ -54,6 +54,10 @@
   <string name="add_to_blacklist_message">Uudet viestit numerosta %s estetään</string>
   <string name="alert_dialog_yes">Kyllä</string>
   <string name="alert_dialog_no">Ei</string>
+  <string name="pref_title_unicode_stripping">Poista unicode</string>
+  <string name="pref_unicode_stripping_leave_intact">Älä tee mitään</string>
+  <string name="pref_unicode_stripping_non_encodable">Poista koodaamattomat merkit</string>
+  <string name="pref_unicode_stripping_all">Poista kaikki unicode-merkit</string>
   <string name="menu_as_unread">Merkitse lukemattomaksi</string>
   <string name="menu_as_read">Merkitse luetuksi</string>
   <string name="menu_all_as_unread">Merkitse kaikki lukemattomiksi</string>
@@ -76,7 +80,7 @@
   <string name="message_share_intent_title">Jaa viesti</string>
   <string name="start_new_message_button">Uusi viesti</string>
   <string name="all_spinner_option">Kaikki</string>
-  <string name="menu_copy_url">Kopioi URL <xliff:g id="extractedurl">%s</xliff:g></string>
+  <string name="menu_copy_url">Kopioi linkki <xliff:g id="extractedurl">%s</xliff:g></string>
   <string name="deleting_threads">Poistetaan keskusteluja\2026</string>
   <string name="menu_resend">Lähetä uudelleen</string>
   <string name="cancel_downloading">Peruuta</string>
@@ -102,10 +106,10 @@
   <string name="download_failed_retry">Viestin lataaminen epäonnistui, yritetään uudelleen\u2026</string>
   <string name="system_audio_item">Soittoääni</string>
   <string name="external_audio_item">Musiikki</string>
-  <string name="menu_connect_url">Avaa URL</string>
+  <string name="menu_connect_url">Avaa linkki</string>
   <string name="do_not_show_connect_warning">Älä näytä tätä varoitusta uudelleen</string>
   <string name="menu_add_to_label">Lisää kirjanmerkkeihin</string>
-  <string name="loadurlinfo_str">Tuntemattomilta lähettäjiltä saapuvat URL-osoitteet voivat olla urkintayrityksiä. Jos olet epävarma, älä avaa tätä sivustoa.</string>
+  <string name="loadurlinfo_str">Tuntemattomilta lähettäjiltä saapuvat linkit voivat olla urkintayrityksiä. Jos olet epävarma, älä avaa tätä sivustoa.</string>
   <string name="pref_title_message_template">Viestipohjat</string>
   <string name="title_new_message_template">Uusi viestipohja</string>
   <string name="summary_new_message_template">Luo uusi viestipohja</string>
@@ -231,4 +235,23 @@
   <string name="copy_empty_string">Ei kopioitavaa tekstiä</string>
   <string name="attach_add_calendar_events">Kalenterimerkintä</string>
   <string name="calendar_attachment_activity_not_found">Toimintoa tukevaa kalenterisovellusta ei löydy</string>
+  <string name="pref_title_mms_notification_vibrate_pattern">Värinän toisto</string>
+  <string name="pref_summary_mms_notification_vibrate_pattern">Muuta värinän toistojen pituutta</string>
+  <string name="pref_mms_notification_vibrate_normal">Normaali</string>
+  <string name="pref_mms_notification_vibrate_med_vib">Keskisuuri värinä</string>
+  <string name="pref_mms_notification_vibrate_long_vib">Pitkä värinä</string>
+  <string name="pref_mms_notification_vibrate_mult_short">Useampi lyhyt</string>
+  <string name="pref_mms_notification_vibrate_mult_long">Useampi pitkä</string>
+  <string name="menu_insert_smiley">Lisää hymiö</string>
+  <string name="pref_title_enable_emoticons">Hymiötuki</string>
+  <string name="pref_summary_enable_emoticons">Korvaa tekstihymiöt graafisilla vastineilla</string>
+  <string name="menu_conversation_options">Keskustelun asetukset</string>
+  <string name="pref_title_reset_convopt_to_default">Palauta oletukset</string>
+  <string name="pref_summary_reset_convopt_to_default">Palauttaa keskustelun asetukset sovelluksen oletuksiin</string>
+  <string name="pref_title_mms_full_timestamp">Näytä aikaleimat</string>
+  <string name="pref_summary_mms_full_timestamp">Näytä aika ja päivämäärä aikaleimassa</string>
+  <string name="pref_title_mms_use_sent_timestamp">Alkuperäinen aikaleima</string>
+  <string name="pref_summary_mms_use_sent_timestamp">Näytä lähetyspäivä vastaanottopäivän sijaan</string>
+  <string name="pref_title_mms_auto_enable_data">Ota datayhteys käyttöön automaattisesti</string>
+  <string name="pref_summary_mms_auto_enable_data">Ota mobiilidata automaattisesti käyttöön multimediaviesteille</string>
 </resources>
