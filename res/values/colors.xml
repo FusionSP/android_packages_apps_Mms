@@ -84,6 +84,6 @@
     <color name="actionbar_background_color">@color/mms_theme_color</color>
     <color name="floating_action_button_icon_color">#ffffff</color>
 
-    <color name="message_bubble_incoming_selected">#ffffffff</color>
-    <color name="message_bubble_outgoing_selected">#ffffffff</color>
+    <color name="message_bubble_incoming_selected">#ff9e9e9e</color>
+    <color name="message_bubble_outgoing_selected">#ff9e9e9e</color>
 </resources>
